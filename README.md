@@ -7,7 +7,6 @@ Si es necesario defender la prueba en una video llamada, o hacer un live-coding 
 He creado varias ramas:
 
 - basic-exercise
-- with-fastify-backend
 - with-graphql
 
 ## Rama basic-exercise
