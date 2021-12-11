@@ -10,6 +10,8 @@ body{
 
 h2{
     color:$secondary;
+    padding-bottom: 4px;
+    border-bottom: 2px solid $secondary
 }
 
 .danger{
@@ -24,4 +26,8 @@ h2{
 .card.raiser{
     -webkit-box-shadow: 2px 2px 15px 2px #BFBFBF; 
     box-shadow: 2px 2px 15px 2px #BFBFBF;
+}
+
+.underline{
+    
 }
