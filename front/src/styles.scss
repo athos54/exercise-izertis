@@ -10,6 +10,8 @@ body{
 
 h2{
     color:$secondary;
+    padding-bottom: 4px;
+    border-bottom: 2px solid $secondary
 }
 
 .danger{
