@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios'
-import { API } from '../config'
+import axios from 'axios';
+import { API } from '../config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PostsService {
+  constructor() {}
 
-  constructor() { }
-
-  getPostQuery(postId:any){
+  getPostQuery(postId: any) {
     return {
       variablesTypes: '$postId: String',
-      variables: {postId: postId},
+      variables: { postId: postId },
       query: `post(id: $postId) {
         id
         body
@@ -48,70 +46,71 @@ export class PostsService {
           name
           postId
         }
-      }`
-    }
+      }`,
+    };
   }
 
-  getPostsQuery(userId:any=null){
+  getPostsQuery(userId: any = null) {
     return {
       variablesTypes: '$userId: String',
-      variables: {userId:userId},
+      variables: { userId: userId },
       query: `posts(userId: $userId) {
         id
         body
         title
         userId
-      }`
-    }
+      }`,
+    };
   }
 
-  createPostQuery(userId:String,title:String,body:String){
+  createPostQuery(userId: String, title: String, body: String) {
     return {
       variablesTypes: '$userId: String, $title: String, $body: String',
       variables: {
         userId: userId,
         title: title,
-        body: body
+        body: body,
       },
       query: `createPost(userId: $userId, title: $title, body: $body){
         id
         body
         title
         userId
-      }`
-    }
+      }`,
+    };
   }
 
-  updatePostQuery(postId:String, userId:String,title:String,body:String){
+  updatePostQuery(postId: String, userId: String, title: String, body: String) {
     return {
-      variablesTypes: '$postId: String!, $userId: String, $title: String, $body: String',
+      variablesTypes:
+        '$postId: String!, $userId: String, $title: String, $body: String',
       variables: {
-        postId: postId, 
+        postId: postId,
         userId: userId,
         title: title,
-        body: body
+        body: body,
       },
       query: `updatePost(id: $postId, userId: $userId, title: $title, body: $body){
         id
         body
         title
         userId
-      }`
-    }
+      }`,
+    };
   }
 
-  deletePostQuery(postId:String){
+  deletePostQuery(postId: String) {
     return {
       variablesTypes: '$postId: String!',
       variables: {
-        postId: postId, 
+        postId: postId,
       },
       query: `deletePost(id: $postId){
         id
         body
         title
         userId
-      }`
-    }
+      }`,
+    };
   }
 }

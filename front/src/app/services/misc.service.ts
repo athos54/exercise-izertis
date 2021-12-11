@@ -1,34 +1,35 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios'
-import { API } from '../config'
+import axios from 'axios';
+import { API } from '../config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MiscService {
+  constructor() {}
 
-  constructor() { }
-
-  execQuery(queries: any){
-    return this.exec(queries,'query Query')
+  execQuery(queries: any) {
+    return this.exec(queries, 'query Query');
   }
 
-  execMutation(queries: any){
-    return this.exec(queries,'mutation Mutation')
+  execMutation(queries: any) {
+    return this.exec(queries, 'mutation Mutation');
   }
 
-  private exec(queries: any, type: string){
-    const variablesArr = queries.map((el:any)=>el.variables)
-    const variablesData = variablesArr.reduce((prev:any,curr:any)=>{
+  private exec(queries: any, type: string) {
+    const variablesArr = queries.map((el: any) => el.variables);
+    const variablesData = variablesArr.reduce((prev: any, curr: any) => {
       return {
         ...prev,
-        ...curr
-      }
-    },{})
+        ...curr,
+      };
+    }, {});
 
-    const variablesTypes = queries.map((el:any)=>el.variablesTypes).join(', ')
+    const variablesTypes = queries
+      .map((el: any) => el.variablesTypes)
+      .join(', ');
 
-    const query = queries.map((el:any)=> el.query).join('\n')
+    const query = queries.map((el: any) => el.query).join('\n');
 
     return axios({
       url: API,
@@ -37,10 +38,10 @@ export class MiscService {
         variables: variablesData,
         query: `${type}(${variablesTypes}) {
           ${query}
-        }`
-      }
+        }`,
+      },
     }).then((result) => {
-      return result.data.data
+      return result.data.data;
     });
   }
 }

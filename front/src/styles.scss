@@ -1,26 +1,26 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-@import './app/custom-colors.scss';
+@import "./app/custom-colors.scss";
 
-body{
-    background-color: $white;
+body {
+  background-color: $white;
 }
 
-h2{
-    color:$secondary;
-    padding-bottom: 4px;
-    border-bottom: 2px solid $secondary
+h2 {
+  color: $secondary;
+  padding-bottom: 4px;
+  border-bottom: 2px solid $secondary;
 }
 
-.danger{
-    color: red;
+.danger {
+  color: red;
 }
 
-.danger:hover{
-    color: red;
-    filter: brightness(85%);
+.danger:hover {
+  color: red;
+  filter: brightness(85%);
 }
 
-.card.raiser{
-    -webkit-box-shadow: 2px 2px 15px 2px #BFBFBF; 
-    box-shadow: 2px 2px 15px 2px #BFBFBF;
+.card.raiser {
+  -webkit-box-shadow: 2px 2px 15px 2px #bfbfbf;
+  box-shadow: 2px 2px 15px 2px #bfbfbf;
 }

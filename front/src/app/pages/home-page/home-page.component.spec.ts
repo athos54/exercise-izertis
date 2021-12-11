@@ -11,9 +11,8 @@ describe('HomePageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ HomePageComponent ]
-    })
-    .compileComponents();
+      declarations: [HomePageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

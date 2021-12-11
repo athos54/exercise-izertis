@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 import { AuthorComponent } from './components/author/author.component';
@@ -34,10 +34,9 @@ const appRoutes: Routes = [
     PostFormComponent,
     AuthorComponent,
     CommentComponent,
-    
   ],
   imports: [
-    HttpClientModule, 
+    HttpClientModule,
     AngularEditorModule,
     FormsModule,
     BrowserModule,
@@ -45,9 +44,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -11,9 +11,8 @@ describe('EditPostPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ EditPostPageComponent ]
-    })
-    .compileComponents();
+      declarations: [EditPostPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

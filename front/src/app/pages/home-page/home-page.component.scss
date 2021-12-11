@@ -1,13 +1,13 @@
-@import '../../custom-colors.scss';
+@import "../../custom-colors.scss";
 
-.home-page-container{
-    a{
-        cursor: pointer;
-    }
-    .row{
-        margin-bottom: 30px;
-    }
-    .no-margin-bottom{
-        margin-bottom: 0;
-    }
+.home-page-container {
+  a {
+    cursor: pointer;
+  }
+  .row {
+    margin-bottom: 30px;
+  }
+  .no-margin-bottom {
+    margin-bottom: 0;
+  }
 }

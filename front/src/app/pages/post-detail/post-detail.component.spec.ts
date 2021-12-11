@@ -11,9 +11,8 @@ describe('PostDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ PostDetailComponent ]
-    })
-    .compileComponents();
+      declarations: [PostDetailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

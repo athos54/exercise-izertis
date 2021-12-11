@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { API, MAPS_API_KEY } from '../config'
-import axios from 'axios'
+import { API, MAPS_API_KEY } from '../config';
+import axios from 'axios';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
+  constructor() {}
 
-  constructor() { }
-
-  getUserQuery(){
+  getUserQuery() {
     return {
-      query:`users {
+      query: `users {
         address {
           city
           geo {
@@ -33,7 +32,7 @@ export class UsersService {
         phone
         username
         website
-      }`
-    }
+      }`,
+    };
   }
 }
