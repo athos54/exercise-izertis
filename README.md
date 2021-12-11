@@ -4,6 +4,36 @@ En este documento explico el "porqué" de las decisiones tomadas en la prueba, a
 
 Si es necesario defender la prueba en una video llamada, o hacer un live-coding no hay problema 😊
 
+## Quick start 
+
+`git clone https://github.com/athos54/exercise-izertis`
+
+`git fetch --all`
+
+### Para ejercicio básico
+
+`git checkout basic-exercise`
+
+`git pull origin basic-exercise`
+
+`docker-compose down && docker-compose build && docker-compose up`
+
+### Para ejercicio related-apis
+
+`git checkout related-apis`
+
+`git pull origin related-apis`
+
+`docker-compose down && docker-compose build && docker-compose up`
+
+### Para ejercicio with-graphql
+
+`git checkout with-graphql`
+
+`git pull origin with-graphql`
+
+`docker-compose down && docker-compose build && docker-compose up`
+
 He creado varias ramas:
 
 - basic-exercise
@@ -16,7 +46,7 @@ En "basic-exercise" he implementado las siguientes funcionalidades:
 
 - Página principal donde solo se muestra el menu.
 - Página home, donde se muestra el listado de todos los posts, así como un filtro por el usuario que ha creado cada post. El filtrado, he pensado en hacerlo a través de una núeva llamada a la api, ya que en este tipo de páginas suele haber un páginador, y hacer el filtrado en front, a pesar de ser más rápido, no creo que sea la mejor opción.
-- En cada post, hay dos "botones", uno para editar, lo que lleva a la página de editar el post a través de navegación SPA. El otro botón es para eliminar el post, esté, en mi opinión debería tener un modal de confirmación, que no he puesto por tiempo.
+- En cada post, hay dos "botones", uno para editar, lo que lleva a la página de editar el post a través de navegación SPA. El otro botón es para eliminar el post, este, en mi opinión debería tener un modal de confirmación, que no he puesto por tiempo.
 - Tanto la página "editar post" como "crear post" montan el mismo componente "app-post-form", el cual delega la acción del boton al padre que instancia el componente. De esta forma podemos re-aprovechar el componente.
 - En el formulario de edición/creación se solicitan diversos campos:
   - User id: este campo, en realidad, debería cogerse seguramente mediante algun token de algun tipo de sistema de autenticación como JWT, pero al no haber sistema de login, lo he dejado con un input normal y corriente.
@@ -40,3 +70,17 @@ En esta rama añado lo que se pide en el punto 2 del ejercicio:
 En esta rama he añadido lo del punto 3 (Realizar un Back ForFrontenden Node.JS para componer los datos complejos y hacer una sola llamada desde el Frontend)
 
 Para esto, he utilizado graphql, en realidad no lo había usado anteriormente así que es posible que la implementación no sea la más correcta...
+
+## Otras notas
+
+He dejado algunos scripts en los package.json (por si les quereis echar un vistazo)
+
+Hacía como un año y algo que no tocaba angular, lo tenía un poco olvidado, y por agilizar un poco no me he enfocado en los tipos
+
+## TODOS y mejoras
+
+- Algún sistema de autenticación
+- Validación de los datos introducidos en los formularios
+- Implementarión correcta de tipos
+- Implementación de tests E2E con alguna herramienta tipo cypress
+- Seguro que alguna cosa más que se me olvida :)
