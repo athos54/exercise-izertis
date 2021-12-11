@@ -10,29 +10,37 @@ Si es necesario defender la prueba en una video llamada, o hacer un live-coding 
 
 `git fetch --all`
 
-### Para ejercicio básico
+## Para ejercicio básico
 
 `git checkout basic-exercise`
 
-`git pull origin basic-exercise`
+`git pull -r origin basic-exercise`
 
 `docker-compose down && docker-compose build && docker-compose up`
 
-### Para ejercicio related-apis
+Abrir el browser en http://localhost:8080
+
+## Para ejercicio related-apis
 
 `git checkout related-apis`
 
-`git pull origin related-apis`
+`git pull -r origin related-apis`
 
 `docker-compose down && docker-compose build && docker-compose up`
 
-### Para ejercicio with-graphql
+Abrir el browser en http://localhost:8080
+
+## Para ejercicio with-graphql
 
 `git checkout with-graphql`
 
-`git pull origin with-graphql`
+`git pull -r origin with-graphql`
 
 `docker-compose down && docker-compose build && docker-compose up`
+
+Abrir el browser en http://localhost:8080
+
+----------
 
 He creado varias ramas:
 
@@ -64,6 +72,8 @@ En esta rama añado lo que se pide en el punto 2 del ejercicio:
 - Página de detalle del post
 - Mostar los datos del usuario que ha creado el Post
 - Mostrar la lista con los comentarios del Post
+
+En la información que venia sobre el usuario, he visto que venian unas coordenadas gps, he puesto un mapa de google maps, pero tengo la sensacion que son coordenadas aleatorias y suele cargar el mapa en zonas de mar 😒
 
 ## with-graphql
 
