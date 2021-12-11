@@ -1,11 +1,19 @@
 version: '3'
 services:
+  back:
+    container_name: back
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile-back
+    ports:
+      - 4000:4000
   web:
     container_name: web
     restart: always
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-front
     ports:
       - 8080:80
   

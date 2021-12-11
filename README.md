@@ -7,6 +7,7 @@ Si es necesario defender la prueba en una video llamada, o hacer un live-coding 
 He creado varias ramas:
 
 - basic-exercise
+- related-apis
 - with-graphql
 
 ## Rama basic-exercise
@@ -34,4 +35,8 @@ En esta rama añado lo que se pide en el punto 2 del ejercicio:
 - Mostar los datos del usuario que ha creado el Post
 - Mostrar la lista con los comentarios del Post
 
-## Rama fastify
+## with-graphql
+
+En esta rama he añadido lo del punto 3 (Realizar un Back ForFrontenden Node.JS para componer los datos complejos y hacer una sola llamada desde el Frontend)
+
+Para esto, he utilizado graphql, en realidad no lo había usado anteriormente así que es posible que la implementación no sea la más correcta...
