@@ -1,0 +1,27 @@
+<div class="post-form-container">
+
+    <div class="item">
+        <label for="exampleInputEmail1">User id:</label>
+        <input [(ngModel)]="userId" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">User id should be get from authentication.</small>
+    </div>
+
+    <div class="item">
+        <label for="exampleInputEmail1">Title:</label>
+        <input [(ngModel)]="title" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">Enter the title for your post.</small>
+    </div>
+
+    <div class="item">
+        <label for="exampleInputEmail1">Body:</label>
+        <angular-editor name='body' [config]="editorConfig" [(ngModel)]="body"></angular-editor>
+        <small id="emailHelp" class="form-text text-muted">Enter the content of your post.</small>
+    </div>
+
+    <div class="item">
+        <button type="button" class="btn btn-primary" (click)="sendForm()">Send</button>
+    </div>
+
+</div>

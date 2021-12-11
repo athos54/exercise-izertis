@@ -1,0 +1,4 @@
+<select class="form-select" (change)="onChange($event)">
+    <option value="">Filter by user</option>
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+</select>

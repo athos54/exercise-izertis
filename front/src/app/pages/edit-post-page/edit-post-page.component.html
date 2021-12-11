@@ -1,0 +1,5 @@
+<h2>Edit post page</h2>
+
+<div *ngIf="postData !== undefined">
+    <app-post-form [postDataForEdit]="postData" (sendClick)="sendForm($event)"></app-post-form>
+</div>
