@@ -1,0 +1,21 @@
+<div class="post-detail-content">
+    
+    <div class="post-detail">
+        <h2 class="mb-1">Post content</h2>
+        <h5>{{postData?.title}}</h5>
+        <div>{{postData?.body}}</div>
+    </div>
+
+    <div class="author-info mt-1">
+        <h2 class="mb-1">Author info</h2>
+        <app-author [authorData]='authorData' [mapsUrl]="mapsUrl"></app-author>
+    </div>
+
+    <div class="comments mt-1">
+        <h2 class="mb-1">Comments</h2>
+        <div *ngFor="let comment of commentsData">
+            <app-comment [comment]="comment"></app-comment>
+        </div>
+    </div>
+
+</div>

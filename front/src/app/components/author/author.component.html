@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col col-xs-12">
+        <div>Id: {{authorData?.id}}</div>
+        <div>Name: {{authorData?.name}}</div>
+        <div>UserName: {{authorData?.username}}</div>
+        <div>Email: {{authorData?.email}}</div>
+        <div>Street: {{authorData?.address.street}} {{authorData?.address.city}} </div>
+    </div>
+    <div class="col col-xs-12">
+        <div>Showing coords: Lat {{authorData?.address.geo.lat}}, lng: {{authorData?.address.geo.lng}}</div>
+
+        <div *ngIf="mapsUrl !== null">
+            <iframe
+                width="450"
+                height="250"
+                frameborder="0" style="border:0"
+                [src]="mapsUrl" allowfullscreen>
+            </iframe>
+        
+        </div>
+    </div>
+</div>

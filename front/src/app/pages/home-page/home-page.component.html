@@ -12,8 +12,17 @@
           <h5 class="card-title">{{post.title}}</h5>
           <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
           <p class="card-text">{{post.body}}</p>
-          <a [routerLink]="['/edit-post/', post.id]" href="#" class="card-link">Edit</a>
-          <a (click)="deleteClick(post)" class="card-link danger">Delete</a>
+
+          <div class="row no-margin-bottom">
+            <div class="col">
+              <a [routerLink]="['/edit-post/', post.id]" href="#" class="card-link">Edit</a>
+              <a (click)="deleteClick(post)" class="card-link danger">Delete</a>
+            </div>  
+            <div class="col d-flex flex-row-reverse ">
+              <a [routerLink]="['/post-detail/', post.id]" href="#" class="card-link">Open</a>
+            </div>  
+          </div>
+          
         </div>
       </div>
     </div>

@@ -43,4 +43,10 @@ export class PostsService {
   deletePost(postId:String){
     return axios.delete(`${API}/posts/${postId}`)
   }
+
+  getComments(postId:String){
+    return axios.get(`${API}/posts/${postId}/comments`).then(comments=>{
+      return comments.data
+    })
+  }
 }

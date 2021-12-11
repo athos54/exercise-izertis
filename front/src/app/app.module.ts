@@ -12,11 +12,15 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+import { AuthorComponent } from './components/author/author.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'create-post', component: CreatePostPageComponent },
   { path: 'edit-post/:id', component: EditPostPageComponent },
+  { path: 'post-detail/:id', component: PostDetailComponent },
 ];
 
 @NgModule({
@@ -24,9 +28,13 @@ const appRoutes: Routes = [
     AppComponent,
     FilterComponent,
     CreatePostPageComponent,
+    PostDetailComponent,
     EditPostPageComponent,
     HomePageComponent,
-    PostFormComponent
+    PostFormComponent,
+    AuthorComponent,
+    CommentComponent,
+    
   ],
   imports: [
     HttpClientModule, 
