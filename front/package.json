@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage",
-    "show:test:coverage": "npm run test && servor ./front/coverage/izertis"
+    "show:test:coverage": "npm run test && servor ./front/coverage/izertis",
+    "prettier": "prettier --write ."
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "prettier": "2.5.1",
     "servor": "^4.0.2",
     "typescript": "~4.3.5"
   }
