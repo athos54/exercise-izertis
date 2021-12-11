@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
+import { MiscService } from 'src/app/services/misc.service';
 
 @Component({
   selector: 'app-create-post-page',
@@ -13,11 +14,14 @@ export class CreatePostPageComponent {
   constructor(
     private router: Router,
     private toast: HotToastService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private miscService: MiscService
     ) { }
 
-  sendForm(data:any){
-    this.postsService.createPost(data.userId,data.title,data.body).then(()=>{
+  async sendForm(data:any){
+    try {
+      const queries = [this.postsService.createPostQuery(data.userId,data.title,data.body)]
+      const response = await this.miscService.execMutation(queries)
       this.toast.success(`Post create success`,{
         duration:5000,
         position:'bottom-right'
@@ -25,11 +29,11 @@ export class CreatePostPageComponent {
       setTimeout(() => {
         this.router.navigate(['/home']);
       }, 3000);
-    }).catch(err=>{
+    } catch (error) {
       this.toast.error(`Post create error`,{
         duration:5000,
         position:'bottom-right'
       });
-    })
+    }
   }
 }

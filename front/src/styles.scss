@@ -1,9 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import './app/custom-colors.scss';
-/* You can add global styles to this file, and also import other style files */
-*{
-    // box-sizing: content-box;
-}
+
 body{
     background-color: $white;
 }
@@ -26,8 +23,4 @@ h2{
 .card.raiser{
     -webkit-box-shadow: 2px 2px 15px 2px #BFBFBF; 
     box-shadow: 2px 2px 15px 2px #BFBFBF;
-}
-
-.underline{
-    
 }

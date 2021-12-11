@@ -3,6 +3,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { ActivatedRoute } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
+import { MiscService } from 'src/app/services/misc.service';
 
 @Component({
   selector: 'app-edit-post-page',
@@ -18,19 +19,22 @@ export class EditPostPageComponent implements OnInit {
     private router: Router,
     private toast: HotToastService,
     private actRoute: ActivatedRoute,
-    private postsService:PostsService
+    private postsService:PostsService,
+    private miscService: MiscService
     ) { 
       this.postId = this.actRoute.snapshot.params.id;
     }
 
-  ngOnInit(): void {
-    this.postsService.getPost(this.postId).then(post=>{
-      this.postData = post
-    })
+  async ngOnInit() {
+    const queries = [this.postsService.getPostQuery(this.postId)]
+    const data = await this.miscService.execQuery(queries)
+    this.postData = data.post
   }
 
-  sendForm(data:any){
-    this.postsService.updatePost(this.postId,data.userId,data.title,data.body).then(()=>{
+  async sendForm(data:any){
+    try {
+      const queries = [this.postsService.updatePostQuery(this.postId,data.userId,data.title,data.body)]
+      const response = await this.miscService.execMutation(queries)
       this.toast.success(`Post update success`,{
         duration:5000,
         position:'bottom-right'
@@ -38,11 +42,11 @@ export class EditPostPageComponent implements OnInit {
       setTimeout(() => {
         this.router.navigate(['/home']);
       }, 3000);
-    }).catch(err=>{
+    } catch (error) {
       this.toast.error(`Post update error`,{
         duration:5000,
         position:'bottom-right'
       });
-    })
+    }
   }
 }

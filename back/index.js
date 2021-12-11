@@ -1,13 +1,33 @@
 const { ApolloServer, gql } = require('apollo-server');
 const { default: axios } = require('axios');
-const {getPosts, getPost} = require('./services/posts')
+const {
+    getPosts,
+    getPost,
+    getUsers,
+    updatePost,
+    createPost
+} = require('./services/misc')
 
 const main = async () => {
     const typeDefs = gql`
       type Query {
         post(id:String): PostDetail
-        posts: [Post]
+        posts(userId:String): [Post]
+        users: [User]
       }
+      type Mutation {
+        createPost(
+            userId:String,
+            title: String,
+            body: String): Post
+        updatePost(
+            id: String!,
+            userId:String,
+            title: String,
+            body: String): Post
+        deletePost(id: String!): Post
+      }
+
       type Post{
           id: ID!
           body: String
@@ -58,14 +78,36 @@ const main = async () => {
 
     const resolvers = {
         Query: {
-            posts: async () => {
-                const results = await getPosts()
-                return await getPosts()
+            posts: async (parent, args, context, info) => {
+                let result = []
+                if (args.userId) {
+                    results = await getPosts(args.userId)
+                } else {
+                    results = await getPosts()
+                }
+                return results
             },
             post: async (parent, args, context, info) => {
                 return await getPost(args.id)
             },
+            users: async () => {
+                return await getUsers()
+            }
         },
+        Mutation: {
+            createPost: async (parent, args, context, info) => {
+                const result = await updatePost(args)
+                return result
+            },
+            updatePost: async (parent, args, context, info) => {
+                const result = await updatePost(args)
+                return result
+            },
+            deletePost: async (parent, args, context, info) => {
+                const result = await deletePost(args)
+                return result
+            },
+        }
     };
 
     const server = new ApolloServer({

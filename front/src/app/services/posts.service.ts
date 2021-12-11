@@ -10,43 +10,108 @@ export class PostsService {
 
   constructor() { }
 
-  getPost(id:String){
-    return axios.get(`${API}/posts/${id}`).then(res=>{
-      return res.data
-    })
+  getPostQuery(postId:any){
+    return {
+      variablesTypes: '$postId: String',
+      variables: {postId: postId},
+      query: `post(id: $postId) {
+        id
+        body
+        title
+        user {
+          address {
+            geo {
+              lng
+              lat
+            }
+            city
+            street
+            suite
+            zipcode
+          }
+          company {
+            bs
+            catchPhrase
+            name
+          }
+          email
+          id
+          name
+          phone
+          username
+          website
+        }
+        comments {
+          body
+          email
+          id
+          name
+          postId
+        }
+      }`
+    }
   }
 
-  getPosts(params:any = {}){
-    return axios.get(`${API}/posts`,{params:params}).then(res=>{
-      return res.data
-    })
+  getPostsQuery(userId:any=null){
+    return {
+      variablesTypes: '$userId: String',
+      variables: {userId:userId},
+      query: `posts(userId: $userId) {
+        id
+        body
+        title
+        userId
+      }`
+    }
   }
 
-  createPost(userId:String,title:String,body:String){
-    return axios.post(`${API}/posts`,{
-      userId,
-      title,
-      body
-    })
+  createPostQuery(userId:String,title:String,body:String){
+    return {
+      variablesTypes: '$userId: String, $title: String, $body: String',
+      variables: {
+        userId: userId,
+        title: title,
+        body: body
+      },
+      query: `createPost(userId: $userId, title: $title, body: $body){
+        id
+        body
+        title
+        userId
+      }`
+    }
   }
 
-  //voy por aqui athos
-  updatePost(postId:String, userId:String,title:String,body:String){
-    return axios.post(`${API}/posts`,{
-      id: postId,
-      userId,
-      title,
-      body
-    })
+  updatePostQuery(postId:String, userId:String,title:String,body:String){
+    return {
+      variablesTypes: '$postId: String!, $userId: String, $title: String, $body: String',
+      variables: {
+        postId: postId, 
+        userId: userId,
+        title: title,
+        body: body
+      },
+      query: `updatePost(id: $postId, userId: $userId, title: $title, body: $body){
+        id
+        body
+        title
+        userId
+      }`
+    }
   }
 
-  deletePost(postId:String){
-    return axios.delete(`${API}/posts/${postId}`)
-  }
-
-  getComments(postId:String){
-    return axios.get(`${API}/posts/${postId}/comments`).then(comments=>{
-      return comments.data
-    })
+  deletePostQuery(postId:String){
+    return {
+      variablesTypes: '$postId: String!',
+      variables: {
+        postId: postId, 
+      },
+      query: `deletePost(id: $postId){
+        id
+        body
+        title
+        userId
+      }`
+    }
   }
 }
